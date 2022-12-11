@@ -52,7 +52,7 @@ const handleDelete =(id)=>{
 }
   return (
     <div className="App" >
-      <Header title="Raw grocery list"/>
+      <Header title="Raw grocery list "/>
       <div style={{backgroundColor:"blue",width:"100%"}}>
       <Chalange1 rend={rend}
                  setRend={setRend}/>
