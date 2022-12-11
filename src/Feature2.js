@@ -1,1 +1,0 @@
-alert("Eu sunu cel mai bun")
