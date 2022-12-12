@@ -14,7 +14,17 @@ import Chalange1 from './Chalange_Color'
 
 function App() {
 
-  const[items,setItem]=useState(JSON.parse(localStorage.getItem('shoppinglist')))
+  const[items,setItem]=useState(()=> {
+    const stored = localStorage.getItem('shoppinglist');
+    if(stored){
+      try{
+        return JSON.parse(stored)
+      } catch (e){
+        console.log('error receivingstored items',e)
+      }
+    }
+    return[]
+  })
    
 const[newItem,setNewItem]= useState('')
 const[search,setSearch] = useState('')
