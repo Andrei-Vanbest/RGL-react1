@@ -5,7 +5,7 @@ import React from "react"
 import Header from "./Header"
 import Content from "./Content"
 import Footer from "./Footer"
-import {useState} from "react"
+import {useState,useEffect} from "react"
 import AddItem from "./AddItem"
 import SearchItem from './SearchItem'
 import Chalange1 from './Chalange_Color'
@@ -14,21 +14,13 @@ import Chalange1 from './Chalange_Color'
 
 function App() {
 
-  const[items,setItem]=useState(()=> {
-    const stored = localStorage.getItem('shoppinglist');
-    if(stored){
-      try{
-        return JSON.parse(stored)
-      } catch (e){
-        console.log('error receivingstored items',e)
-      }
-    }
-    return[]
-  })
+  const[items,setItem]=useState(JSON.parse(localStorage.getItem('shoppinglist'))||[])
    
 const[newItem,setNewItem]= useState('')
 const[search,setSearch] = useState('')
 const[rend,setRend]=useState('')
+
+
 
 const handleSubmit=(e)=>{
   e.preventDefault()
